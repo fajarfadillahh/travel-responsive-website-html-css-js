@@ -75,11 +75,7 @@
   --img-scale: scale(1.1);
 }
 
-// ===== VARIABLES DARK THEME =====
-
-// ===== BUTTON DARK/LIGHT =====
-
-// ===== BASE & RESERT =====
+// ===== BASE & RESET =====
 * {
   padding: 0;
   margin: 0;
@@ -96,6 +92,19 @@ body {
   font-size: var(--normal-font-size);
   background-color: var(--body-color);
   color: var(--text-color);
+  transition: 0.3s;
+
+  // ===== VARIABLES DARK THEME
+  &.dark-theme {
+    --first-color-second: hsl(var(--hue-color), 54%, 12%);
+    --title-color: hsl(var(--hue-color), 24%, 95%);
+    --text-color: hsl(var(--hue-color), 8%, 75%);
+    --input-color: hsl(var(--hue-color), 29%, 16%);
+    --body-color: hsl(var(--hue-color), 29%, 12%);
+
+    --scroll-bar-color: hsl(var(--hue-color), 12%, 48%);
+    --scroll-thumb-color: hsl(var(--hue-color), 12%, 36%);
+  }
 }
 
 h1,
@@ -259,6 +268,32 @@ button {
     & .header__logo,
     & .header__toggle {
       color: var(--title-color);
+    }
+  }
+
+  // ====== BUTTON DARK/LIGHT =====
+  &__dark {
+    position: absolute;
+    left: 3rem;
+    bottom: 4rem;
+    display: flex;
+    align-items: center;
+    column-gap: 2rem;
+  }
+
+  & .change {
+    &-theme,
+    &-theme-name {
+      color: var(--text-color);
+    }
+
+    &-theme {
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    &-theme-name {
+      font-size: var(--small-font-size);
     }
   }
 }
@@ -908,6 +943,26 @@ button {
         &::before {
           background-color: var(--text-color);
         }
+      }
+
+      & .change {
+        &-theme {
+          color: var(--text-color);
+        }
+      }
+    }
+
+    &__dark {
+      position: initial;
+    }
+
+    & .change {
+      &-theme-name {
+        display: none;
+      }
+
+      &-theme {
+        color: var(--white-color);
       }
     }
   }
